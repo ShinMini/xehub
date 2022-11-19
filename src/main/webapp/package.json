@@ -1,0 +1,11 @@
+{
+  "name": "xehub_task",
+  "version": "1.0.0",
+  "description": "hyeonmin task for intership task",
+  "main": "index.js",
+  "author": "ShinMini",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}

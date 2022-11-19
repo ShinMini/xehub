@@ -1,0 +1,101 @@
+		@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&display=swap');
+
+		body {
+			display: flex;
+			justify-content: center;
+			background-color: #6F9283;
+			color: white;
+			width: 100%;
+			height: 100vh;
+
+			margin: 0;
+			font-family: 'Nanum Myeongjo', serif;
+
+		}
+		div.mainContainer {
+            font-size: 2em;
+			display: flex;
+			flex-direction: column;
+			width: 80%;
+			height: 80%;
+			background-color: light-blue;
+
+			align-item: center;
+			text-align: center;
+		}
+		h2 {
+			margin-top:50px;
+			margin-bottom: 30px;
+		}
+		p {
+			margin-top: 20px;
+			margin-bottom: 10px;
+		}
+		a {
+			text-decoration: none;
+			color: red;
+			margin-right: 100px;
+			border-radius: 25%;
+		}
+		button {
+			align-self: center;
+			background-color: grey;
+			color: white;
+			border-radius: 15px;
+			font-size: 23px;
+			width: 200px;
+			height: 120px;
+		}
+		div.userInfo {
+			font-family: 'Orbitron', sans-serif;
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+        form {
+            background-color: #F0DCCA;
+            padding: 15px;
+            align-self: center;
+
+            border-radius: 25px;
+            width: 400px;
+            height: 500px;
+        }
+
+		#mainForm {
+            color: black;
+
+            position: flex;
+
+            justify-center: center;
+            align-item: center;
+
+            align-self: center;
+
+            width: 100%;
+            height: 100%;
+
+		}
+
+		input {
+		width: 300px;
+		height: 40px;
+
+		padding-left: 20px;
+		background-color: #A1A6B4;
+		border: none;
+		border-radius: 15px;
+
+		color: #F8F8F8;
+		}
+
+		.indexMainButton {
+		background-color: #000100;
+
+        padding-left: 10px;
+        padding-right: 10px;
+		margin-top: 30px;
+
+		width: 120px;
+		height: 40px;
+		}

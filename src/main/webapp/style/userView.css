@@ -1,0 +1,69 @@
+		@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Orbitron&display=swap');
+
+		button:hover{
+			font-size: 24px;
+		    color: yellow;
+		}
+		button {
+            cursor: pointer;
+			align-self: center;
+			background-color: #241623;
+
+			color: white;
+			border-radius: 15px;
+			font-size: 22px;
+
+            width: 180px;
+            height: 60px;
+
+            border-right: 5px solid black;
+            border-bottom: 9px solid black;
+            border-radius: 15px;
+		    background-color: #3C787E;
+
+		    margin-bottom: 15px;
+		}
+
+		#timeView {
+			font-family: 'Orbitron', sans-serif;
+		}
+		#userInfo {
+			font-family: 'Orbitron', sans-serif;
+		}
+
+		div.userInfo {
+			font-family: 'Orbitron', sans-serif;
+			display: flex;
+			justify-content: space-evenly;
+		}
+
+		div.userViewDivButtonContainer {
+		    display: flex;
+		    justify-content: center;
+		    gap: 15px;
+		}
+
+		div.userViewDivButton {
+		    cursor: pointer;
+
+            padding-top: 7px;
+            color: black;
+            width: 180px;
+            height: 60px;
+
+            border-right: 5px solid black;
+            border-bottom: 9px solid black;
+            border-radius: 15px;
+		    background-color: #3C787E;
+		}
+		div.userViewDivButton:hover {
+			font-size: 1.1em;
+            color: yellow;
+		}
+		#userName {
+		color: black;
+		}
+		#userLog {
+		color: black;
+		padding-bottom: 15px;
+		}

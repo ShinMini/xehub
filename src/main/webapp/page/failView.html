@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>empview.jsp</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/userView.css">
+</head>
+<body>
+<div class="mainContainer">
+
+    <h2> Fail to Login. </h2>
+
+    <p> 로그인 실패시 출력되는 화면입니다. </p>
+    <div class="userViewDivButtonContainer">
+        <div class="userViewDivButton" onclick="goHome()">Login</div>
+    </div>
+
+</div>
+
+<script>
+// routing
+function goHome(){
+	location.href="/";
+}
+</script>
+</body>
+</html>

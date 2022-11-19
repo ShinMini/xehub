@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>empview.jsp</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<link rel="stylesheet" href="../style/main.css">
+	<link rel="stylesheet" href="../style/userView.css">
+</head>
+<body>
+<div class="mainContainer">
+
+	<h2> Success to Login. </h2>
+
+	<p>
+		로그인 성공 시 접근 가능한 페이지 입니다.
+	</p>
+	<div class="userViewDivButtonContainer">
+		<div class="userViewDivButton" onclick="goHome()">Home</div>
+		<div class="userViewDivButton" onclick="logOut()">Logout</div>
+	</div>
+
+</div>
+
+<script>
+// routing
+function goHome(){
+	location.href="/";
+}
+function logOut(){
+// 쿠키 삭제
+	document.cookie = "LOGIN_USER=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	location.href="/";
+}
+</script>
+</body>
+</html>

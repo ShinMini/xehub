@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>userView.jsp</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<link rel="stylesheet" href="../style/main.css">
+	<link rel="stylesheet" href="../style/userView.css">
+</head>
+<body>
+<div class="mainContainer">
+	<h2> Success to Login.</h2>
+	<p> after SignUp View.</p>
+
+	<div class="userViewDivButtonContainer">
+		<div class="userViewDivButton" onclick="goHome()">Content</div>
+		<div class="userViewDivButton" onclick="logOut()">Logout</div>
+	</div>
+
+	<div id="userInfo">
+		<p>유저이름</p>
+		<div id="userName"></div>
+		<p>마지막 접속일입니다.</p>
+		<div id="userLog"></div>
+	</div>
+
+	<button onClick="pressBtn();">쿠키 만료 확인</button>
+	<div id="timeView"></div>
+</div>
+
+<script>
+// routing
+function goHome(){
+	location.href="/page/home.html";
+}
+function logOut(){
+// 쿠키 삭제
+	document.cookie = "LOGIN_USER=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	location.href="/";
+}
+// 시계 기능을 구현할 div
+const timeView = document.getElementById("timeView");
+
+// 쿠키 정보 전처리 과정입니다.
+const cookieData = document.cookie;
+
+// JAVA 에서 미리 생성해둔 쿠키 정보입니다.
+const LOGIN_USER = cookieData.split("=")
+const cookieBody = LOGIN_USER[1].split("|")
+const dateLog = cookieBody[1]
+const timeLog = cookieBody[2].slice(0, 8);
+
+// 유저 정보와 마지막 접속일 출력기능입니다.
+const userNameDiv = document.getElementById("userName");
+userNameDiv.innerText += cookieBody[0];
+const userLogDiv = document.getElementById("userLog");
+userLogDiv.innerText += dateLog+" " + timeLog;
+
+// 버튼 클릭시 남은 쿠키 시간 정보를 출력합니다.
+function pressBtn(){
+	const expireTime = moment(timeLog, "HH:mm:ss").fromNow();
+	const cookieMin = timeLog.slice(3, 5);
+	const cookieSec = timeLog.slice(6, 8);
+	let nowMin= moment().format('mm');
+	let nowSec= moment().format('ss');
+	let expireMin = 10 -  Math.abs(Number(cookieMin) - Number(nowMin));
+	let expireSec = Number(cookieSec) - Number(nowSec);
+
+	const timerId = setInterval( ()=>{
+		expireSec -=1;
+		timeView.innerText = expireMin + ":" + expireSec;
+		if(expireMin < 0) {
+			timeView.innerText = "이미 쿠키가 만료되었습니다 :("
+			clearInterval(timerId);
+		}
+		if(expireMin == 0 && expireSec == 1){
+			timeView.innerText = "쿠키가 만료되었습니다."
+			clearInterval(timerId);
+		}
+		if(expireSec < 0) { // 초단위 시간이 0이되었을 때,
+			if((expireMin -1) !== 0){ // 분에서 1분을 빼도 만료시간이 종료되지 않는경우
+				expireMin -=1;
+				}
+			expireSec = 60;
+			}
+		}, 1000)
+}
+</script>
+
+</body>
+</html>

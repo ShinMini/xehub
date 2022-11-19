@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="./style/main.css">
+</head>
+<body>
+<div class="mainContainer">
+    <h1 style="color: black;">Main Home</h1>
+    <p>로그인 페이지입니다. </p>
+    <div style="margin: 20px 0 30px 0; font-size: 22px;">아이디와 비밀번호를 입력해주세요 :)</div>
+
+
+    <form method="POST" action="demo/add">
+        <div id="mainForm">
+
+            <div>ID: </div>
+            <input type="text" name="name" value="userId">
+            <div>Password: </div>
+            <input type="password" name="password" value="samplePassword">
+            <input class="indexMainButton" type="submit" value="로그인">
+
+            <input formaction="/demo/signup" class="indexMainButton" type="submit" value="회원가입">
+        </div>
+    </form>
+
+</div>
+
+<script>
+// 로그아웃
+function logout() {
+	document.cookie = "LOGIN_USER=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	location.href="/";
+}
+window.onload = (event) => {
+
+// 쿠키 정보 전처리 과정입니다.
+const cookieData = document.cookie;
+
+// cookie없을 경우 아래 구문 실행 ㄴㄴ
+if(cookieData == "") return
+
+// JAVA 에서 미리 생성해둔 쿠키 정보입니다.
+const LOGIN_USER = cookieData.split("=")
+const cookieBody = LOGIN_USER[1].split("|")
+const userName = cookieBody[0];
+
+const dateLog = cookieBody[1];
+const timeLog = cookieBody[2].slice(0, 8);
+
+	const expireTime = moment(timeLog, "HH:mm:ss").fromNow();
+	const cookieMin = timeLog.slice(3, 5);
+	const cookieSec = timeLog.slice(6, 8);
+	let nowMin= moment().format('mm');
+	let nowSec= moment().format('ss');
+	let expireMin = 10 -  Math.abs(Number(cookieMin) - Number(nowMin));
+	let expireSec = Number(cookieSec) - Number(nowSec);
+
+	if(expireMin < 0) {
+	    logout();
+	}
+	else {
+	location.href="/page/userView.html"
+	}
+}
+</script>
+</body>
+</html>
