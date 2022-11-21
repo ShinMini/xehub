@@ -99,6 +99,7 @@ DB는 로컬 환경에 구축하고 제출 시 Schema, Constraints 포함하여 
   
   
 # SQL 데이터베이스 정보. 
+
 spring.jpa.hibernate.ddl-auto=update
 spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/xehub_task
 spring.datasource.username=xehub
@@ -108,6 +109,8 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 
 # MYSQL create data set query
+
+``` MYSQL
 CREATE TABLE User
 (
     ID INT NOT NULL AUTO_INCREMENT,
@@ -126,4 +129,6 @@ VALUES('신현민', '2016-02-16', 1234);
 
 INSERT INTO User (Name, ReserveDate, Password)
 VALUES('xehub', '2017-02-12', 4500);
+
+```
 
