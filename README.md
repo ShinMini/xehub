@@ -1,3 +1,7 @@
+[영상 링크](https://youtu.be/Ek2gDBxj4PU)
+
+![image](https://user-images.githubusercontent.com/77220824/203040544-388d28f9-1516-449f-b9b1-7efcf69fde48.png)
+
 # xehub task
 
 # 목표
